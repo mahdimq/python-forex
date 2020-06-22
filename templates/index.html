@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% with messages = get_flashed_messages(with_categories=false) %}
+{% for msg in messages %}
+<article class="message is-danger">
+  <p class="message-body">{{ msg }}</p>
+</article>
+{% endfor %}
+{% endwith %}
+
+<div class="columns is-mobile is-centered">
+  <div class="control column is-full">
+
+    <form action="/currency" method="GET">
+      <div class="field">
+        <label class="label" for="from">Converting From</label>
+        <input class="input is-info" id="from" name="from" type="text" placeholder="Converting From...">
+      </div>
+      <div class="field">
+        <label class="label" for="to">Converting To</label>
+        <input class="input is-info" id="to" name="to" type="text" placeholder="Converting To...">
+      </div>
+      <div class="field">
+        <label class="label" for="amount">Amount</label>
+        <input class="input is-info" id="amount" name="amount" type="text" placeholder="Amount...">
+      </div>
+      <button class="button is-info is-full-width is-outlined mt-2">Convert</button>
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="subtitle">Your Exchange Rates</h1>
+<p class="is-medium mb-2">Converting From: <strong>{{from_curr}} ({{curr_name1}})</strong></p>
+<p class="is-medium mb-2">Converting To: <strong>{{to_curr}} ({{curr_name2}})</strong></p>
+<p class="is-medium mb-2">Amount to Change: <strong>{{initial_amount}}</strong></p>
+<p class="is-medium mb-2">Amount to Receive: <strong>{{symbol}} {{converted_amount}}</strong></p>
+<a class="button is-info is-outlined is-full-width mt-2" href="/">Convert Again?</a>
+
+{% endblock %}
