@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect
 from forex_python.converter import CurrencyRates, CurrencyCodes, RatesNotAvailableError
 from flask_debugtoolbar import DebugToolbarExtension
+from logic import logic
 
 app = Flask(__name__)
 
@@ -25,10 +26,10 @@ def show_rates():
     """Error handling if form input is empty
     and return a flash message if error thrown"""
     if not request.args['from']:
-        flash("Currency cannot be blank.")
+        flash("'Converting from' cannot be blank.")
         return redirect("/")
     if not request.args['to']:
-        flash("Currency cannot be blank.")
+        flash("'Converting to' cannot be blank.")
         return redirect("/")
     if not request.args['amount']:
         flash("Amount cannot be blank.")
